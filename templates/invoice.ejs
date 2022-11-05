@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto+Condensed:wght@300;400&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body{
+    width:100vw;
+    height: 100vh;
+
+}
+
+.main{
+    margin-top: 5%;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(74, 187, 74);
+    color: white;
+    height: 60px;
+    border-radius: 100px;
+}
+
+
+.main1{
+    margin-top: 5%;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(54, 58, 54);
+    color: white;
+    height: 65px;
+    border-radius: 100px;
+}
+
+.button1{
+    width: 200px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: rgb(54, 58, 54);
+    color: white;
+    border: 1px solid rgb(54, 58, 54);
+}
+
+
+.button2{
+    width: 200px;
+    height: 50px;
+    border-radius: 100px;
+    background-color:  rgb(74, 187, 74);
+    color: white;
+    border: 1px solid green;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.title h1{
+    font-weight: bold;
+    color:  rgb(74, 187, 74);
+    font-size: 60px;
+}
+
+.martop{
+    margin-top: 10%;
+}
+
+.to h3{
+    color:  rgb(74, 187, 74);
+    margin-bottom: 3%;
+}
+
+.to h4{
+    color:black;
+    font-size: 25px;
+    margin-bottom: 3%;
+}
+
+
+.from h3{
+    color:  rgb(74, 187, 74);
+    margin-bottom: 3%;
+}
+
+.from h4{
+    color:black;
+    font-size: 25px;
+    margin-bottom: 3%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h3{
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 5%;
+}
+
+.tandc{
+    color: rgb(45, 182, 45);
+}
+
+.button{
+    margin-top: 10%;
+}
+
+</style>
+<body>
+
+
+    <div class="flex">
+        <div class="logo">
+            <img src="logo.png" alt="" width="200px" height="100px">
+        </div>
+        <div class="title">
+            <h1>Invoice</h1>
+            <div class="flex">
+                <p >Invoice</p>
+                <p>#000001</p>
+            </div>
+            <div class="flex">
+                <p>InvoiceDate: </p>
+                <p style="padding-left:20px ;"> November20,2022</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flex martop">
+        <div class="to">
+            <h3>Invoice To</h3>
+            <h4>John Doe</h4>
+            <p>MovenpickHotelDowntown,Dubai,UA</p>
+            <p>Phone:+1234567891</p>
+            <p>Email:mail@example.com</p>
+        </div>
+        <div class="from">
+            <h3>Invoice From</h3>
+            <h4>John Doe</h4>
+            <p>FlipsideRestaurant,BusinessBay,Dubai</p>
+            <p>TRN:100621696200003</p>
+            <p>Phone:+97144561187</p>
+            <p>Email:info@vmeals.ae</p>
+        </div>
+    </div>
+
+
+
+<div class="container">
+
+    <div class="main">
+        <p>NO</p>
+        <p>PRODUCT DESCRIPTIOB</p>
+        <p>PRICE</p>
+        <p>VAT(5%)</p>
+        <p>QTY</p>
+        <p>TOTAL</p>
+    </div>
+
+    <!-- black detail bar -->
+
+    <div class="main1">
+        <p>01</p>
+        <p>classic diet -1 month <br><span>weightloss 5-days/weekly</span> </p>
+        <p>AED2000.00</p>
+        <p>AED1000.00</p>
+        <p>1</p>
+        <p>AED2100.00</p>
+    </div>
+
+
+</div>
+    <h3 class="h3">Thank You for choosing us in your fitness journey!</h3>
+    
+    
+    <div class="flex">
+
+     <div class="terms">
+        <p class="tandc">Terms & Conditions:</p>
+        <p>Loremipsumdolorsitamet,consecteturadipiscingelit,sedeiusmo</p>
+        <p>temporincididuntutlaboreetdoloremagnaaliqua</p>
+     </div>   
+    <div class="button">    
+    <button class="button1">
+        <div class="flex">
+            <p>subTotal</p>
+            <p>AED2000.00</p>
+        </div>
+    </button> 
+    <br><br>
+    <button class="button1">
+        <div class="flex">
+            <p>Discount(15%)</p>
+            <p>AED200.00</p>
+        </div>
+    </button> 
+
+    <br><br>
+    <button class="button2">
+        <div class="flex">
+            <p>Total:</p>
+            <p>AED1800.0</p>
+        </div>
+    </button> 
+
+</div>
+
+</div>
+
+
+</body>
+</html>

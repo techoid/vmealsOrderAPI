@@ -3,8 +3,58 @@ const mongoose = require('mongoose')
 const nodemailer = require ('nodemailer')
 const ContactUs = require('./models/contactUs')
 const registerCompany = require('./models/registerCompany')
-const { sendEmail } = require("./email");
+const { sndEmail } = require("./email");
 
+const EmailTemplate = require('email-templates').EmailTemplate;
+const Promise = require('bluebird');
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'anas.raheem2003@gmail.com',
+      pass: 'fqegszdodvczkuyt'
+    }
+  });
+function sendEmail(obj) {
+    return transporter.sendMail(obj);
+}
+function sendOtp(req, res) {
+    
+    let message = 'Your verification code is: '
+    let users = [
+        {
+            email:"techoid.dev@gmail.com",
+            name: "name",
+            message: message
+        }
+    ]
+    console.log(users);
+    loadTemplate('invoice', users).then((results) => {
+        return Promise.all(results.map((result) => {
+            console.log(result.email.html)
+            sendEmail({
+                to: "techoid.dev@gmail.com",
+                from: 'anas.raheem2003@gmail.com',
+                subject: "subject",
+                html: result.email.html,
+                text: result.email.text
+
+            });
+        }));
+    })}
+    function loadTemplate(templateName, contexts) {
+        let template = new EmailTemplate(path.join(__dirname, 'templates', templateName));
+        return Promise.all(contexts.map((context) => {
+            return new Promise((resolve, reject) => {
+                template.render(context, (err, result) => {
+                    if (err) reject(err);
+                    else resolve({
+                        email: result,
+                        context,
+                    });
+                });
+            });
+        }));
+    }
 const Order = require('./models/orderschema')
 
 const app = express();
@@ -19,13 +69,7 @@ mongoose.connect(`mongodb://localhost:27017/${dbName}`,{useNewUrlParser:true})
     console.log("no connection ");
 });
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'anas.raheem2003@gmail.com',
-      pass: 'fqegszdodvczkuyt'
-    }
-  });
+
 
 app.post('/order', (req,res)=>{
     const{plan,personalInfo,deliveryDetails}=req.body;
@@ -36,10 +80,7 @@ app.post('/order', (req,res)=>{
     })
     newOrder.save()
     .then(order=>{
-        sendEmail(
-            "techoid.dev@gmail.com",
-            "Welcome message"
-          );
+        sendOtp(req,res);
         res.status(200).json(order)
     })
     .catch(err=>{
